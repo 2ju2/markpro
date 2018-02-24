@@ -1,0 +1,15 @@
+/***** Common JS *****/
+
+$(document).ready(function() {
+	var header_markup = '';
+	header_markup += '<nav class="navbar navbar-default navbar-fixed-top">'
+	header_markup += '<div class="container-fluid">';
+	header_markup += '<div class="navbar-header">';
+	header_markup += '<a class="navbar-brand" href="#">';
+	header_markup += '<img alt="markpro" src="../img/common/logo.png">';
+	header_markup += '</a>';
+	header_markup += '</div>';
+	header_markup += '</div>';
+	header_markup += '</nav>';
+	$('#commonHeader').append(header_markup);
+});

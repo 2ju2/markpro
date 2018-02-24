@@ -1,0 +1,559 @@
+@charset "utf-8";
+
+/* cmd watch 설정
+  1. cmd 오픈
+  2. cd C:\MyGithub\markpro\css 복붙
+  3. sass --watch style.scss:style.css 복붙
+  4. Sass is watching for changes. 메세지 확인
+*/
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 100;
+  src: local('Noto Sans Thin'), local('Noto Sans Thin'), local('Noto Sans Thin');
+  src: url('../fonts/NotoSans-Thin.eot');
+  src: url('../fonts/NotoSans-Thin.eot?#iefix') format('embedded-opentype'), 
+url('../fonts/NotoSans-Thin.woff') format('woff'), 
+url('../fonts/NotoSans-Thin.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Noto Sans Light'), local('Noto Sans Light'), local('Noto Sans Light');
+  src: url('../fonts/NotoSans-Light.eot');
+  src: url('../fonts/NotoSans-Light.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/NotoSans-Light.woff') format('woff'),
+  url('../fonts/NotoSans-Light.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Noto Sans Regular'), local('Noto Sans Regular'), local('Noto Sans Regular');
+  src: url('../fonts/NotoSans-Regular.eot');
+  src: url('../fonts/NotoSans-Regular.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/NotoSans-Regular.woff') format('woff'),
+  url('../fonts/NotoSans-Regular.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Noto Sans Medium'), local('Noto Sans Medium'), local('Noto Sans Medium');
+  src: url('../fonts/NotoSans-Medium.eot');
+  src: url('../fonts/NotoSans-Medium.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/NotoSans-Medium.woff') format('woff'),
+  url('../fonts/NotoSans-Medium.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Noto Sans Bold'), local('Noto Sans Bold'), local('Noto Sans Bold');
+  src: url('../fonts/NotoSans-Bold.eot');
+  src: url('../fonts/NotoSans-Bold.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/NotoSans-Bold.woff') format('woff'),
+  url('../fonts/NotoSans-Bold.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Noto Sans Black'), local('Noto Sans Black'), local('Noto Sans Black');
+  src: url('../fonts/NotoSans-Black.eot');
+  src: url('../fonts/NotoSans-Black.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/NotoSans-Black.woff') format('woff'),
+  url('../fonts/NotoSans-Black.otf') format('truetype');
+}
+
+/* Base Style Definition */
+
+* {
+  max-height: 1000000px;
+  -webkit-text-size-adjus: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  color:#333;
+  font-family: 'Noto Sans', 'sans-serif'; font-weight:400; 
+}
+
+html {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  word-break: break-all;
+  -ms-word-break: break-all;
+}
+
+header, footer, section, article, figure, div, p, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, form, fieldset, input, button, table, th, td, img, a {
+  margin: 0;
+  padding: 0;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  border: 0 none;
+  background: transparent;
+  cursor: pointer;
+  *overflow: visible;
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+}
+
+/* firefox fix */
+
+header, footer, section, article, figure, form, fieldset {
+  display: block;
+}
+
+form, fieldset, img {
+  border: 0 none;
+}
+
+textarea {
+  overflow: auto;
+}
+
+caption, figcaption {
+  display: none;
+}
+
+em, address {
+  font-style: normal;
+}
+
+label {
+  cursor: pointer;
+}
+
+legend {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  font-size: 0;
+  line-height: 0;
+}
+
+/* for screen reader */
+
+:focus {
+  outline: 0 none;
+}
+
+a {
+  background: none; color:#333;
+  &:hover{text-decoration: none;}
+  &:visited{text-decoration: none;}
+}
+.white-font{color:#fff}
+.btn{border-radius:0px 1vw;} //px,vw의 모양이 비슷 //%와 em의 모양이 비슷..왜?
+
+/*******************************************************/
+/**************** Real Style Definition ****************/
+/*******************************************************/
+$main-color: #1e3370;
+$main-color-light1: #4473FC;
+$main-color-light2: #3256BC;
+$main-color-light3: #21397D;
+$main-color-dark: #172756; 
+$darkBack-hover:#f0f187;
+$dimgray:dimgray;
+
+
+/* Common */
+
+.footer {
+  background:#3c3c3c;
+  *{color:#fff}
+  footer{margin-top:20px; margin-bottom: 20px;
+    a{transition:color .3s;
+      &:visited{color:#fff}
+      &:hover{color:$darkBack-hover;}
+    }
+  }
+}
+.btn{transition: all .2s;}
+.btn-primary{
+  background:$main-color-light3; border-color:$main-color; 
+  &:hover, &:active{
+    background:$main-color; border-color:$main-color-dark;
+  }
+}
+.btn-border-white{
+  border-color: #fff; color:#fff; background:none;
+  &:hover, &:active{
+    background:#fff; color:$main-color;
+  }
+}
+
+.img_mask{z-index:1; position: absolute; top: 0px; width: 100%; height: 100%; background-color: rgba(0,0,0,0.4);}
+.thumbnail a>img, .thumbnail>img{width:100%}
+article, .subSec 
+  {
+    line-height:1.8em;
+    h1, h2, h3, h4{color:$main-color; margin-bottom:20px}
+    h5, h6{color:$dimgray; margin-bottom:20px}
+    p{font-weight:300; margin-bottom:20px}
+  }
+
+/* GNB(PC menu) */
+
+#commonHeader {
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
+  background:#f8f8f8; border-color:#e7e7e7; 
+  position:fixed; top:0;
+  z-index:3;
+  width:100%;
+  nav{
+    height:50px
+  }
+}
+
+.header_logo{
+  padding:15px 15px; 
+  float:left;
+  line-height:1px;
+  img{height:20px}
+}
+
+.pc_nav_back{
+  width: 100%; background:#f1f1f1; position: absolute; top: 50px; opacity:0.4; height:0px;
+  transition: opacity .3s, height .3s, background-color .3s;
+  &.on{
+    height:150px;
+  }
+}
+
+.pc_menu{
+  position:absolute;
+  top:0px;
+  left:120px;
+  > li{
+    float:left;
+    width:120px;
+    a{display:block; padding:5px 15px;}
+    > a{padding:15px; font-weight:500;}
+    > ul{height:0px; opacity:0; visibility:hidden; transition: opacity .3s, height .3s,  background-color .3s;
+     a{
+      color:#fff
+     }
+    }
+  }
+  > li.on{
+    > ul{background-color:rgba(0, 0, 0, 0.3); }
+  }
+  &.on > li > ul{height:150px; opacity:1; visibility:visible;}
+}
+
+.menu_right{
+  float:right;
+  > li{
+    padding:15px;
+    display:inline-block;
+    .dropdown-toggle, .caret{
+      color:gray
+    }
+    .dropdown-menu{
+      min-width:auto;
+    }
+  }
+  li + li{padding-left:0px}
+}
+
+/* LNB(Mobile menu) */
+
+.mobile_wrap{
+  position: fixed;
+  top: 51px;
+  width: 100%;
+  background: #002b3b;
+  height: 100%;
+  padding-left:50px;
+  left:-100%;
+  overflow-y:auto;
+  ul.accordion {
+    list-style: none;
+    padding: 0;  
+    .inner {
+        overflow: hidden;
+        display: none;
+        &.on {
+          /*display: block;*/
+        }
+    }  
+    li {
+        a.toggle {
+            background: #003040;
+            background: linear-gradient(#003040, #002535);
+            padding: .8em .5em;
+            padding-right:30px;
+            width: 100%;
+            display: block;
+            color:#fefefe;            
+            transition: background-color .3s ease;
+            position:relative;
+            &:hover {
+                /*background: rgba(0, 0, 0, 0.9);*/
+            }
+            &.on{
+            }
+            .glyphicon{
+              color: #fff;
+              position: absolute;
+              top: 9px;
+              right: 10px;
+            }
+          span:before{
+            content:"\2b";
+            font-family:"Glyphicons Halflings";
+            line-height:1;
+            position:absolute;
+            top:13px;
+            right:10px;
+            color:#fff;
+          }
+          &.on span:before{
+            content:"\2212";
+            font-family:"Glyphicons Halflings";
+            line-height:1;
+            position:absolute;
+            top:13px;
+            right:10px;
+            color:#fff;
+          }
+        }
+      .depth_2 li a{
+        background:#004050;
+      }
+      .depth_3 li a{
+        background:#005b72;
+      }
+    }
+  }
+  &.open{
+    box-shadow:1px 2px 5px rgba(0, 0, 0, 0.5);
+  }
+}
+
+
+/**************** MAIN PAGE ****************/
+
+#fullpage{
+  .section{
+    background-size:cover;
+    .container{
+      position:relative; z-index:2; 
+      h1{margin-bottom:15px;}
+      p + p{margin-top:4px}
+      p + p.btnWrap{margin-top:30px;}
+    }
+  }
+  .jumbotron{margin-bottom:0; padding:0}
+} 
+
+#section01{
+    background-image: url('../img/main/bg01.jpg'); 
+    .container{padding-left:50px; padding-right:50px;}
+    h1, p, span{color:#fff}
+    span.count{font-size:1.3em;}
+}
+
+#section02{
+  h1, p{color:#fff}
+}
+
+#fullpage .thumbSec .container{
+  padding:40px;
+  padding-top:90px;
+  h2{margin-bottom:10px}
+  p{margin-bottom:40px}
+}
+
+
+/* slide */
+.slide {
+  background-repeat: no-repeat;
+  padding: 0 30px;
+  color: #fff;
+  background-size:cover;
+}
+
+#slide1 {background-image: url('../img/main/bg02.jpg'); }
+#slide2 {background-image: url('../img/main/bg04.jpg'); }
+#slide3 {background-image: url('../img/main/bg05.jpg'); }
+
+/* fullPage.js */
+.fp-controlArrow.fp-prev, .fp-controlArrow.fp-next{display:none}
+.fp-slidesNav.bottom{text-align:center;}
+
+#fp-nav ul li a span, .fp-slidesNav ul li a span {
+  font-size: 0;
+  line-height: 0;
+  display: block;
+  width: 15px;
+  height: 15px;
+  padding: 5px;
+  cursor: pointer;
+  color: transparent;
+  border: 0;
+  border-radius: 0 40%;
+  outline: 0;
+  background: #fff;
+  opacity: .6;
+  -webkit-transition: all .2s linear;
+  -o-transition: all .2s linear;
+  -moz-transition: all .2s linear;
+  transition: all .2s linear;
+  top:0;
+  left:0;
+  margin:0;
+}
+
+#fp-nav ul li:hover a span, .fp-slidesNav ul li:hover a span{
+  width:15px; height:15px; margin:0; background:cornflowerblue;
+}
+
+#fp-nav ul li a.active span, .fp-slidesNav ul li a.active span, #fp-nav ul li:hover a.active span, .fp-slidesNav ul li:hover a.active span {
+  opacity: 1;
+  background: $main-color;
+  border-radius: 0 40%;
+  width: 15px;
+  height: 15px;
+  margin:0;
+}
+
+
+/**************** SUBPAGE template ****************/
+body.subBody{
+  .jumbotron{padding-top:99px; background-image:url('../img/template/tempBg_01.jpg'); background-size:cover;
+    h1, h2, h3, h4, h5, h6{color:#fff; text-transform: uppercase;}
+    p{color:#fff;}
+    
+  }
+  footer{margin-top:40px; background:#3c3c3c; height:60px; padding:20px 0px;
+    a{transition:color .3s;
+      &:visited{color:#fff}
+      &:hover{color:$darkBack-hover;}
+    }  
+  }
+}
+
+/* template 01 */
+.txt_wrap{
+  p{margin-bottom:10px}
+}
+
+/* template 02 */
+.figure_txt_wrap{
+  figure{padding-bottom:40px;
+    img{width:100%; max-width:300px; border-radius:0 25px}
+  }
+  p{margin-bottom:10px}
+}
+
+/* template 03 */
+body.temp03 .jumbotron{background-image:url('../img/template/tempBg_02.jpg');}
+
+.benefit_wrap{
+  .media-left{
+    img{border-radius:0 15px;}
+  }
+}
+
+/* template 04 */
+.map_wrap{
+  .row{margin-top:50px;
+    .thumbnail{margin-bottom:40px;
+      iframe{width:100%}
+    }
+  }
+}
+
+/* template 05 */
+body.temp05 .jumbotron{background-image:url('../img/template/tempBg_03.jpg');}
+
+.listview_wrap{
+  .row{margin-top:50px;
+    .thumbnail{margin-bottom:40px;
+      iframe{width:100%}
+    }
+  }
+}
+
+/* template 06 */
+body.temp06 .jumbotron{background-image:url('../img/template/tempBg_03.jpg');}
+
+.newsList_wrap{
+  .media{   
+    border: solid 1px #eee;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.13);
+    cursor: pointer;
+    transition: background-color .3s;
+    &:hover{background:#f5f5f5}
+    .media-left{
+      img{border-radius:0 15px; width:100px; height:85px}
+    }
+  }
+  
+  .paging_wrap{margin-top:30px}
+}
+
+
+
+/*****************************************************/
+/******************* MEDIA SCREEN ********************/
+/*****************************************************/
+
+@media screen and (min-width: 480px) {
+
+}
+
+@media screen and (min-width: 768px) {
+  .slide{
+    .container{width:650px}
+  }
+  .menu_right > li:last-child{display:none} //모바일 메뉴버튼
+}
+
+@media screen and (min-width: 992px) {
+  .slide{
+    .container{width:800px}
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .slide{
+    .container{width:1020px}
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .pc_menu{display:none;}
+  .pc_nav_back{display:none}
+}
